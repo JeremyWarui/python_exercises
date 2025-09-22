@@ -23,3 +23,24 @@ print(sum(odd_num))
 
 odd_nums = [n for n in num_list if n % 2 != 0][:5]
 print(sum(odd_nums))
+
+# using while loop
+
+count_odd = 0
+sum_of_odds = 0
+i = 0
+# print(f"i at before loop: {i}")
+
+while (count_odd < 5) and i < len(num_list) :
+    # print(f"i at start: {i}")
+    if num_list[i] % 2 != 0:
+        count_odd += 1
+        sum_of_odds += num_list[i]
+    i += 1
+    # print(f"i at end: {i}")
+
+print(sum_of_odds)
+
+
+
+
