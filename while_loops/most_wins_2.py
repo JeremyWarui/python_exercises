@@ -6,23 +6,14 @@ winners = {1931: ['Norman Taurog'], 1932: ['Frank Borzage'], 1933: ['Frank Lloyd
 ### since there can be more than 1 director tied with the most Oscar wins.
 most_win_director = []
 # Add your code here
-list_winners = []
-for winners in winners.values():
-    for winner in winners:
-        list_winners.append(winner)
-count = 0
-winner_count={}
-for winner in list_winners:
-    if winner in winner_count:
-        winner_count[winner] += 1
-    else:
-        winner_count[winner] = 1
+win_count_dict = {}
 
-max_wins = 0
-for count in winner_count.values():
-    if count > max_wins:
-        max_wins = count
+for year, winners_list in winners.items():
+    for winner in winners_list:
+        win_count_dict[winner] = win_count_dict.get(winner, 0) + 1
 
-most_win_director = [winner for winner, count in winner_count.items() if count == max_wins ]
+max_wins = max(win_count_dict.values())
 
-print("most_win_director = {}".format(most_win_director))
+most_win_director = [ name for name, count in win_count_dict.items() if count == max_wins]
+
+print(most_win_director)
